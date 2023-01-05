@@ -1,0 +1,33 @@
+<div class="form">
+
+    <form (ngSubmit)="submit()" [formGroup]="FoodForm" #formDir="ngForm">
+    
+        <div class="form-group">
+            <input type="hidden" formControlName="_id" />
+        </div>
+        <div >
+            <label for="nome">Nome da Bebida:</label>
+            <input type="text" placeholder="Coloque um nome" formControlName= "nome" required />
+            <div *ngIf="nome.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="nome.errors?.['required']">O nome é obrigatório.</p></div>
+        </div>
+        <div class="form-group">
+            <label for="preco">Preço:</label>
+            <input type="number" placeholder="Qual o preço?" formControlName= "preco" required />
+            <div *ngIf="preco.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="preco.errors?.['required']">O preço é obrigatório.</p></div>
+        </div>
+        <div class="form-group">
+            <label for="descricao">Descricao:</label>
+            <textarea formControlName="descricao" placeholder="Descricao da Bebida."></textarea>
+            <div *ngIf="descricao.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="descricao.errors?.['required']">A descrição é obrigatória.</p></div>
+        </div>
+        <div class="form-group">
+            <label for="foto">A foto da bebida:</label>
+            <input type="file" (change)="onFileSelected($event)"/>
+        </div>
+        <input type="submit" value="{{btnText}}" />
+    </form>
+
+</div>
