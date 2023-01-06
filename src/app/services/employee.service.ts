@@ -28,7 +28,7 @@ export class EmployeeService {
     return this.http.post<FormData>(this.apiUrl, { nome: employee.nome
       , idade: employee.idade, foto: employee.foto.toString(), cargo: employee.cargo
       , naturalidade: employee.naturalidade, anoAdmissao: employee.anoAdmissao
-      , isActive: employee.isActive
+      , hobbie: employee.hobbie, isActive: employee.isActive
       , dataCriacao: employee.dataCriacao, dataAtualizacao: employee.dataAtualizacao});
   }
 
@@ -42,7 +42,7 @@ export class EmployeeService {
     return this.http.put<FormData>(url, { nome: employee.nome
       , idade: employee.idade, foto: employee.foto.toString(), cargo: employee.cargo
       , naturalidade: employee.naturalidade, anoAdmissao: employee.anoAdmissao
-      , isActive: employee.isActive
+      , hobbie: employee.hobbie, isActive: employee.isActive
       , dataCriacao: employee.dataCriacao, dataAtualizacao: employee.dataAtualizacao});
   }
 }
