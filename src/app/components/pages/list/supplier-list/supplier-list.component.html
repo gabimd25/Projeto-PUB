@@ -1,0 +1,22 @@
+<section id="chefs" class="chefs">
+    <div class="container" data-aos="fade-up">
+       
+       <div class="row">
+        <div *ngFor="let supplier of suppliers">
+            <div class="col-lg-4 col-md-6">
+            <h4>{{supplier.nome}}</h4>
+             <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                <img src="{{supplier.foto}}" class="img-fluid" alt="" onerror="this.src='https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'">
+                <div class="member-info">
+                   <div class="member-info-content">
+                      <!--<h4>{{event.dataInicio}} - {{event.horaInicio}}</h4>-->
+                      <span>{{supplier.descricao}}</span>
+                   </div>
+                   <div class="social"> <a routerLink="/suppliers/{{supplier._id}}">Detalhes</a> <a routerLink="/suppliers/edit/{{supplier._id}}">Editar</a> <a (click)="removeSupplierHandler(supplier._id!)">Excluir</a></div>
+                </div>
+             </div>
+          </div>
+        </div>
+       </div>
+    </div>
+ </section>

@@ -1,0 +1,20 @@
+<div class="form">
+
+    <form (ngSubmit)="submit()" [formGroup]="LoginForm" #formDir="ngForm">
+    
+        <div >
+            <label for="email">Email:</label>
+            <input type="text" placeholder="Digite seu email." formControlName= "email" required />
+            <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="email.errors?.['required']">O email é obrigatório.</p></div>
+        </div>
+        <div >
+            <label for="senha">Senha:</label>
+            <input type="text" placeholder="Digite sua senha." formControlName= "senha" required />
+            <div *ngIf="senha.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="senha.errors?.['required']">A senha é obrigatório.</p></div>
+        </div>
+        <input type="submit" value="{{btnText}}" />
+    </form>
+
+</div>

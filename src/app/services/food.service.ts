@@ -9,7 +9,7 @@ import { Food } from '../interfaces/Food';
 })
 export class FoodService {
   private baseApiUrl = environment.baseApiUrl;
-  private apiUrl = `${this.baseApiUrl}bebidas`;
+  private apiUrl = `${this.baseApiUrl}comidas`;
 
   constructor(private http: HttpClient) { }
 

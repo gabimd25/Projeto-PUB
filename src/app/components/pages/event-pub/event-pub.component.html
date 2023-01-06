@@ -1,0 +1,25 @@
+<div class="container" data-aos="fade-up">
+    <div class="section-title">
+       <h2>Eventos</h2>
+       <p>Dicas de Eventos</p>
+    </div>
+    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+       <div class="swiper-wrapper">
+        
+          <div class="swiper-slide" *ngFor="let event of eventsFive">
+             <div class="testimonial-item">
+                <!--<p> <i class="bx bxs-quote-alt-left quote-icon-left"></i> {{event.descricao} <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>-->
+                <p> <i class="bx bxs-quote-alt-left quote-icon-left"></i> {{event.descricao}} <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>
+                <img src="{{event.foto}}" class="testimonial-img" alt="">
+                <h3>{{event.nome}}</h3>
+                <div>
+                <a class="details" (click)="detailEventHandler(event._id!)">Detalhes  </a>
+                <a class="details" routerLink="/insricao" >   Inscrever-se  </a></div>
+
+             </div>
+          </div>
+          
+       </div>
+       <div class="swiper-pagination"></div>
+    </div>
+ </div>

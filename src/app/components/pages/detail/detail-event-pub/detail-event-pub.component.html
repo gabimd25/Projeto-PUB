@@ -1,0 +1,30 @@
+<p>food works!</p>
+<section id="specials" class="specials">
+    <div class="container" data-aos="fade-up" *ngIf="eventPub ; else noEvent">
+       <div class="section-title">
+          <p>{{eventPub.nome}}</p>
+       </div>
+       <div>
+         <p>Inicio: {{eventPub.dataInicio}} --- {{eventPub.horaInicio}}</p>
+         <p>Fim: {{eventPub.dataFim}} --- {{eventPub.horaFim}}</p>
+       </div>
+       <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-9 mt-4 mt-lg-0">
+             <div class="tab-content">
+                <div class="tab-pane active show" id="tab-1">
+                   <div class="row">
+                      <div class="col-lg-8 details order-2 order-lg-1">
+                         <p class="fst-italic">{{eventPub.descricao}}</p>
+                      </div>
+                      <div class="col-lg-4 text-center order-1 order-lg-2"> <img src="{{eventPub.foto}}" onerror="this.src='https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'" class="img-fluid"></div>
+                   </div>
+                </div>
+                
+             </div>
+          </div>
+       </div>
+    </div>
+    <ng-template #noEvent>
+        <h1>Evento não encontrado!</h1>
+    </ng-template>
+ </section>

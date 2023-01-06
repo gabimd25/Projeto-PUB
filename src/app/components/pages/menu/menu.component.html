@@ -1,82 +1,58 @@
 <div class="container" data-aos="fade-up">
     <div class="section-title">
        <h2>Menu</h2>
-       <p>Check Our Tasty Menu</p>
+       <p>Itens do nosso Menu!</p>
     </div>
     <div class="row" data-aos="fade-up" data-aos-delay="100">
        <div class="col-lg-12 d-flex justify-content-center">
           <ul id="menu-flters">
-             <li data-filter="*" class="filter-active">Bebidas</li>
-             <li data-filter=".filter-starters">Comidas</li>
-             <li data-filter=".filter-salads">Salads</li>
-             <li data-filter=".filter-specialty">Specialty</li>
+             <li data-filter="*" class="filter-active">Comidas e Bebidas</li>
+             <li data-filter=".filter-drinks">Bebidas</li>
+             <li data-filter=".filter-foods">Comidas</li>
+             <li data-filter=".filter-test">Test</li>
           </ul>
        </div>
-    </div>
-    <div *ngIf="allDrinks.length > 0; else noDrinks">
-        <div class="moments-containerrow menu-container" data-aos="fade-up" data-aos-delay="200">
-            <div class="drink" *ngFor="let drink of allDrinks">
-                
-                <!--<p class="date">Em: {{drink.dataCriacao}}</p>-->
-                <div class="col-lg-6 menu-item filter-starters">
-                    <img src="{{drink.foto}}" class="menu-img" alt="image" onerror="this.src='https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'">  
-                    <div class="menu-content"><span>{{drink.nome}}</span><span>${{drink.preco}}</span></div>
-                    <div class="menu-ingredients"> {{drink.descricao}}</div>
-                    <span><a class="details" routerLink="/drinks/{{drink._id}}" >Detalhes  </a></span>
-                    <span ><a class="details" routerLink="/drinks/edit/{{drink._id}}">Editar  </a></span>
-                    <span ><a class="details" href="" (click)="removeHandler(drink._id!)">Excluir</a></span>
-                </div>
+       
+     
+    <div *ngIf="allFoods.length > 0; else noFoods">
+      <div class="menu-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="food" *ngFor="let food of allFoods">
+            
+            <!--<p class="date">Em: {{drink.dataCriacao}}</p>-->
+            <div class="col-lg-6 menu-item filter-foods">
+                <img src="{{food.foto}}" class="menu-img" alt="image" onerror="this.src='https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'">  
+                <div class="menu-content"><span>{{food.nome}}</span><span>${{food.preco}}</span></div>
+                <div class="menu-ingredients"> {{food.descricao}}</div>
+                <span><a class="details" (click)="detailFoodHandler(food._id!)" >Detalhes  </a></span>
+                <span ><a class="details" routerLink="/foods/edit/{{food._id}}">Editar  </a></span>
+                <span ><a class="details" href="" (click)="removeFoodHandler(food._id!)">Excluir</a></span>
             </div>
         </div>
+      </div>
+      </div>
+   <ng-template #noFoods>
+      <h1>Não há comidas cadastradas!</h1>
+   </ng-template>
+   <div *ngIf="allDrinks.length > 0; else noDrinks">
+      <div class="menu-container" data-aos="fade-up" data-aos-delay="200">
+         
+          <div class="drink" *ngFor="let drink of allDrinks">
+              
+              <!--<p class="date">Em: {{drink.dataCriacao}}</p>-->
+              <div class="col-lg-6 menu-item filter-drinks">
+                  <img src="{{drink.foto}}" class="menu-img" alt="image" onerror="this.src='https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'">  
+                  <div class="menu-content"><span>{{drink.nome}}</span><span>${{drink.preco}}</span></div>
+                  <div class="menu-ingredients"> {{drink.descricao}}</div>
+                  <span><a class="details" (click)="detailDrinkHandler(drink._id!)">Detalhes  </a></span>
+                  <span ><a class="details" routerLink="/drinks/edit/{{drink._id}}">Editar  </a></span>
+                  <span ><a class="details" href="" (click)="removeDrinkHandler(drink._id!)">Excluir</a></span>
+              </div>
+          </div>
+      </div>
     </div>
     <ng-template #noDrinks>
-        <h1>Não há bebidas cadastradas!</h1>
-    </ng-template>
-    <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
-       <div class="col-lg-6 menu-item filter-starters">
-          <img src="assets/img/menu/lobster-bisque.jpg" class="menu-img" alt="">
-          <div class="menu-content"> <a href="#">Lobster Bisque</a><span>$5.95</span></div>
-          <div class="menu-ingredients"> Lorem, deren, trataro, filede, nerada</div>
-       </div>
-       <div class="col-lg-6 menu-item filter-specialty">
-          <img src="assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
-          <div class="menu-content"> <a href="#">Bread Barrel</a><span>$6.95</span></div>
-          <div class="menu-ingredients"> Lorem, deren, trataro, filede, nerada</div>
-       </div>
-       <div class="col-lg-6 menu-item filter-starters">
-          <img src="assets/img/menu/cake.jpg" class="menu-img" alt="">
-          <div class="menu-content"> <a href="#">Crab Cake</a><span>$7.95</span></div>
-          <div class="menu-ingredients"> A delicate crab cake served on a toasted roll with lettuce and tartar sauce</div>
-       </div>
-       <div class="col-lg-6 menu-item filter-salads">
-          <img src="assets/img/menu/caesar.jpg" class="menu-img" alt="">
-          <div class="menu-content"> <a href="#">Caesar Selections</a><span>$8.95</span></div>
-          <div class="menu-ingredients"> Lorem, deren, trataro, filede, nerada</div>
-       </div>
-       <div class="col-lg-6 menu-item filter-specialty">
-          <img src="assets/img/menu/tuscan-grilled.jpg" class="menu-img" alt="">
-          <div class="menu-content"> <a href="#">Tuscan Grilled</a><span>$9.95</span></div>
-          <div class="menu-ingredients"> Grilled chicken with provolone, artichoke hearts, and roasted red pesto</div>
-       </div>
-       <div class="col-lg-6 menu-item filter-starters">
-          <img src="assets/img/menu/mozzarella.jpg" class="menu-img" alt="">
-          <div class="menu-content"> <a href="#">Mozzarella Stick</a><span>$4.95</span></div>
-          <div class="menu-ingredients"> Lorem, deren, trataro, filede, nerada</div>
-       </div>
-       <div class="col-lg-6 menu-item filter-salads">
-          <img src="assets/img/menu/greek-salad.jpg" class="menu-img" alt="">
-          <div class="menu-content"> <a href="#">Greek Salad</a><span>$9.95</span></div>
-          <div class="menu-ingredients"> Fresh spinach, crisp romaine, tomatoes, and Greek olives</div>
-       </div>
-       <div class="col-lg-6 menu-item filter-salads">
-          <img src="assets/img/menu/spinach-salad.jpg" class="menu-img" alt="">
-          <div class="menu-content"> <a href="#">Spinach Salad</a><span>$9.95</span></div>
-          <div class="menu-ingredients"> Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette</div>
-       </div>
-       <div class="col-lg-6 menu-item filter-specialty">
-          <img src="assets/img/menu/lobster-roll.jpg" class="menu-img" alt="">
-          <div class="menu-content"> <a href="#">Lobster Roll</a><span>$12.95</span></div>
-          <div class="menu-ingredients"> Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll</div>
-       </div>
+      <h1>Não há bebidas cadastradas!</h1>
+  </ng-template>
     </div>
  </div>
+ <!-- O PROBLEMA É NA ORDEM-->
