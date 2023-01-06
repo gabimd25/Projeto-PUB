@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/app/environments/environment';
 import { Login } from 'src/app/interfaces/Login';
 
 @Component({
@@ -10,12 +11,11 @@ import { Login } from 'src/app/interfaces/Login';
 })
 export class LoginFormComponent {
   @Output() onSubmit = new EventEmitter<Login>()
-  @Input() btnText!: string
+  btnText: string = "Login";
   @Input() LoginData: Login | null = null;
   LoginForm!: FormGroup;
   
   constructor(private router: Router){}
-
   ngOnInit(): void {
     this.LoginForm = new FormGroup({
       email: new FormControl(this.LoginData ? this.LoginData.email : '', [Validators.required]),
@@ -37,6 +37,7 @@ export class LoginFormComponent {
     }
     this.onSubmit.emit(this.LoginForm.value)
     console.log("login efetuado");
-    this.router.navigate(['']);
+    
+    this.router.navigate(['/home']);
   }
 }

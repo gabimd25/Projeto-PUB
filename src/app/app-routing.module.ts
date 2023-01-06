@@ -21,8 +21,8 @@ import { NewFoodComponent } from './components/pages/new/new-food/new-food.compo
 import { NewSupplierComponent } from './components/pages/new/new-supplier/new-supplier.component';
 
 const routes: Routes = [
-    {path: '', component: HomeComponent},
-    {path: 'login', component: LoginFormComponent},
+    {path: '', component: LoginFormComponent},
+    {path: 'home', component: HomeComponent},
     {path: 'drinks/new', component: NewDrinkComponent},
     {path: 'drinks/edit/:id', component: EditDrinkComponent},
     {path: 'drinks/:id', component: DetailDrinkComponent},

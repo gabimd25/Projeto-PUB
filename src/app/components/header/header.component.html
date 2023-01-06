@@ -3,8 +3,8 @@
        <h1 class="logo me-auto me-lg-0"><a href="">Pub Angular</a></h1>
        <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
-             <li><a class="nav-link scrollto active" href="">Home</a></li>
-             <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
+             <li><a class="nav-link scrollto active" routerLink="/home">Home</a></li>
+             <li><a class="nav-link scrollto" href="/home">Menu</a></li>
              <li class="dropdown">
                <a href=""><span>Funcionários</span> <i class="bi bi-chevron-down"></i></a>
                <ul>
@@ -13,27 +13,27 @@
                </ul>
             </li>
              <li class="dropdown">
-               <a href="#testimonials"><span>Eventos</span> <i class="bi bi-chevron-down"></i></a>
+               <a href="/home"><span>Eventos</span> <i class="bi bi-chevron-down"></i></a>
                <ul>
                   <li><a routerLink="/events/new">Adicionar Evento</a></li>
                   <li><a routerLink="/events/">Todos Eventos</a></li>
                </ul>
             </li>
             <li class="dropdown">
-               <a href="#chefs"><span>Fornecedores</span> <i class="bi bi-chevron-down"></i></a>
+               <a href="/home"><span>Fornecedores</span> <i class="bi bi-chevron-down"></i></a>
                <ul>
                   <li><a routerLink="/suppliers/new">Adicionar Fornecedor</a></li>
                   <li><a routerLink="/suppliers">Todos Fornecedores</a></li>
                </ul>
             </li>
              <li class="dropdown">
-                <a href="#menu"><span>Bebidas</span> <i class="bi bi-chevron-down"></i></a>
+                <a href="/home"><span>Bebidas</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                    <li><a routerLink="/drinks/new">Adicionar Bebida</a></li>
                 </ul>
              </li>
              <li class="dropdown">
-                <a href="#"><span>Comidas</span> <i class="bi bi-chevron-down"></i></a>
+                <a href="/home"><span>Comidas</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                    <li><a routerLink="/foods/new">Adicionar Comida</a></li>
                 </ul>
@@ -41,6 +41,5 @@
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
        </nav>
-       <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
     </div>
   </header>
